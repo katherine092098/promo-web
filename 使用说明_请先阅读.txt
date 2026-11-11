@@ -1,0 +1,52 @@
+本地完整网站 - 使用说明
+==============================
+
+网站页面
+--------
+index.html       首页（由原 Home.html 改名）
+products.html    产品页面
+about.html       关于我们
+contact.html     联系我们
+
+页面资源
+--------
+Home_files、Products_files、About_files、Contact_files 分别保存原页面用到的图片、CSS 和 JavaScript。
+请保留这些文件夹，并让它们与对应的 HTML 文件放在同一层目录，不要单独移动或删除。
+
+在电脑本地预览
+--------------
+方法 A：
+1. 先将 ZIP 解压到电脑的一个普通文件夹。
+2. 双击 index.html，可直接打开首页。
+3. 点击页面顶部或底部的 Home / Products / About / Contact 导航，检查页面是否可以相互跳转。
+
+方法 B（推荐）：
+1. 安装 Visual Studio Code。
+2. 在 VS Code 中选择 File > Open Folder，打开解压后的 My-Website-Ready 文件夹。
+3. 在扩展商店安装 Live Server。
+4. 右键 index.html，选择 Open with Live Server。
+
+上传到 Hostinger
+-----------------
+1. 先备份 Hostinger 当前 public_html 中的文件。
+2. 打开 hPanel > Websites > Manage > File Manager > public_html。
+3. 上传并解压本 ZIP。
+4. 将解压后的 My-Website-Ready 文件夹里面的内容（index.html、products.html、about.html、contact.html 和四个 *_files 文件夹）放到 public_html 根目录。
+   注意：不要只把 My-Website-Ready 这个外层文件夹放进去，否则首页可能变成 yourdomain.com/My-Website-Ready/。
+5. 访问你的域名，确认首页、菜单、产品图片和各页面正常。
+
+本次整理做了什么
+----------------
+- 将 Home.html 改为 index.html，作为默认首页。
+- 将 Products / About / Contact 改为小写文件名，便于部署和管理。
+- 将原网站域名的站内菜单与页面按钮链接改成本地页面链接。
+- 删除指向原服务器 /media/ 目录的响应式图片候选地址，优先使用 ZIP 内已有的本地图片。
+- 将下载时带有“.下载”后缀的 JavaScript 文件恢复为标准 .js 文件名，并同步更新页面引用。
+- 保留原有页面布局、文字、图片和页面专属资源。
+
+需要留意
+--------
+- 原 ZIP 的 CSS 引用了 woff2 字体文件，但 ZIP 中没有包含 woff2 文件夹。网站仍可显示，不过部分字体可能由浏览器使用替代字体，外观会略有差异。
+- Contact 页面中的联系表单是原网站编辑器生成的动态表单。当前 ZIP 没有独立的表单接收后端；上传为纯静态 HTML 后，必须实际测试提交功能，不能仅凭表单外观判断邮件能否发送。若不能提交，需要在 Hostinger 配置表单处理服务或改为可用的邮箱/API 表单。
+- 部分动态功能可能依赖原网站编辑器服务。请在上传前后分别测试菜单、按钮、联系表单等功能。
+- 如果今后更换域名，需要检查各页面 canonical SEO 地址，并更新为新域名。
